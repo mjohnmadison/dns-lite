@@ -22,12 +22,12 @@ echo "example.com >> /home/${USER}/domains.txt
 ```
 
 I added this script to rc.local to run on boot (sleep to ensure DHCP has assigned IP). You can do this with:
-````
+```
 sudo sed -i "$ i\sleep 10 && /home/${USER}/dns-lite -domains /home/${USER}/domains.txt" /etc/rc.local
 ```
 
 Add a cron to run every 5 minutes:
-````
+```
 echo "*/5 * * * * /home/${USER}/dns-lite -domains /home/${USER}/domains.txt >/dev/null 2>&1" | sudo tee /etc/cron.d/dns-lite
 ```
 
