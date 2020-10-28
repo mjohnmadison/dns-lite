@@ -11,12 +11,14 @@ Until my kid figures out how DNS works, this should work. Please refrain from in
 ## Installing
 If you are on a raspberry pi with ARMv7:
 ```
-curl -o /home/${USER}/dns-lite blahblahlbah
+curl -Lo /home/${USER}/dns-lite https://github.com/mjohnmadison/dns-lite/releases/download/v1/dns-lite
+chmod +x /home/${USER}/dns-lite
 ```
 
 Create a file named domains.txt (default name, check usage below to chagne name):
+The domains file in the repo contains to entries for apt update to run. You can create your own:
 ```
-
+echo "example.com >> /home/${USER}/domains.txt
 ```
 
 I added this script to rc.local to run on boot (sleep to ensure DHCP has assigned IP). You can do this with:
